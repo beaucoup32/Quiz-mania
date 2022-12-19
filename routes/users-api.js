@@ -22,3 +22,6 @@ router.get('/', (req, res) => {
 });
 
 module.exports = router;
+
+
+//reaches out to db on this users-api on ln10 and where users.js is just rendering users
