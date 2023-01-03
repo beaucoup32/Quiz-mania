@@ -60,6 +60,8 @@ app.get('/quiz', (req, res) => {
 
 app.get('/qstart', (req, res) => {
   res.render('qstart');
+app.get('/users/:id/quizzes', (req, res) => {
+  res.render('quizzes');
 })
 
 //create quiz route

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Quiz-Mania: Your Quizzes</title>
+
+
+    <!-- TimeAgo CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Font Awesome Loader -->
+    <script src="https://kit.fontawesome.com/7c113315e9.js" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+    <!-- Font Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,600;1,100;1,300&display=swap" rel="stylesheet">
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/user-quiz.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+
+    <!-- Nav Bar CSS -->
+    <link rel="stylesheet" href="/styles/nav-bar.css" />
+
+    <!-- Quiz Container CSS -->
+    <link rel="stylesheet" href="/styles/quiz-container.css" />
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">
+        <h2 class="logo-text">Quiz-Mania</h2>
+      </div>
+      <div class="nav-options">
+        <button class="login">Login</button>
+        <button class="new-quiz">Create a new Quiz</button>
+      </div>
+    </nav>
+
+    <div class="quiz-links-container">
+      <h1>My quizzes: </h1>
+      <article class="quiz-link">
+        <p class="quiz-name">Marvel</p>
+        <div class="buttons">
+          <label class="public-checkbox">Public
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <button>Copy URL</button>
+          <button>Delete</button>
+        </article>
+
+        <article class="quiz-link .2">
+          <p class="quiz-name">Custom Quiz 1</p>
+          <div class="buttons">
+            <label class="public-checkbox">Public
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            <button>Copy URL</button>
+            <button>Delete</button>
+          </div>
+        </article>
+    </div>
+  </body>
+</html>
