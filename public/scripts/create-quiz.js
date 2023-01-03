@@ -1,10 +1,14 @@
-console.log($('#add-question-button'))
-$('#add-question-button').on('click', function (event) {
-  event.preventDefault();
+$('#create-button').prop('disabled', true);
 
+// console.log($('#add-question-button'))
+let questionCount = 0;
+
+$('#add-question-button').on('click', function (event) {
+  //logs event when add-question is clicked
   console.log(event.target);
 
-  const $question = $(`
+  if (questionCount < 10) {
+    const $question = $(`
   <div class="question-input">
     <div class="question-input-field">
       <Label for="question">Question</Label>
@@ -35,24 +39,25 @@ $('#add-question-button').on('click', function (event) {
   </div>
   `)
 
-  $('form.create-quiz-input').append($question)
+    $('form.create-quiz-input').append($question)
+    questionCount++;
+  }
 
+  //trash can delete question
+  // $('.fa-trash-can').on('click', function (event) {
+  //   $(event.target).closest('.question-input').next('.answer-select').remove();
+  //   $(event.target).closest('.question-input').remove();
+  //   questionCount--;
+  // })
+
+  if (questionCount < 1) {
+    $('#create-button').prop('disabled', true);
+  } else {
+    $('#create-button').prop('disabled', false);
+  }
+
+  if (questionCount === 10) {
+    $('#add-question-button').prop('disabled', true);
+  }
 })
-
-// const addQuestionButton = document.getElementById('add-question-button');
-// const questionTemplate = document.getElementById('question-template');
-
-// addQuestionButton.addEventListener('click', function (event) {
-//   // Prevent the default reload
-//   event.preventDefault();
-//   //limit to 10 questions per quiz
-//   if (questionCounter >= 10) {
-//     return;
-//   }
-//   questionCounter++;
-
-//   // Clone the question template and append it to the form
-//   const newQuestion = questionTemplate.content.cloneNode(true);
-//   document.querySelector('.create-quiz-input').appendChild(newQuestion);
-// });
 

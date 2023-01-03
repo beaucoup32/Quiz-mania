@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  margin-top: 5em;
+  margin: 5em;
 }
 
 .create-quiz-input {
@@ -58,24 +58,42 @@ select {
   padding: 0em 0.5em;
  }
 
+ #add-question-button {
+   background-color: transparent;
+   border-radius: 0.5em;
+   border: solid;
+   border-color: rgb(10, 189, 198);
+   color: rgb(234, 0, 217);
+   margin: 1em;
+   padding: 0em 0.5em;
+  }
 
-#create-button {
-  background-color: transparent;
-  border-color: rgb(234, 0, 217);
-  border: solid;
-  border-radius: 1em;
-  color: rgb(234, 0, 217);
-  font-weight: bold;
-  margin: 2em;
-  padding: 0em 0.5em;
-}
+  #add-question-button:disabled {
+    display: none;
+  }
 
-#add-question-button {
-  background-color: transparent;
-  border-radius: 0.5em;
-  border: solid;
-  border-color: rgb(10, 189, 198);
-  color: rgb(234, 0, 217);
-  margin-top: 1em;
-  padding: 0em 0.5em;
-}
+  #cancel-create-button {
+   background-color: transparent;
+   border-radius: 0.5em;
+   border: solid;
+   border-color: rgb(10, 189, 198);
+   color: rgb(10, 189, 198);
+   padding: 0em 0.5em;
+   margin: 1em;
+  }
+
+  #create-button {
+    background-color: transparent;
+    border-color: rgb(234, 0, 217);
+    border: solid;
+    border-radius: 1em;
+    color: rgb(234, 0, 217);
+    font-size: 32px;
+    font-weight: bold;
+    margin: 1em;
+    padding: 0em 0.5em;
+  }
+
+  #create-button:disabled {
+    display: none;
+ }
