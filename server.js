@@ -49,8 +49,14 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+//view quiz list main route
 app.get('/quiz', (req, res) => {
   res.render('quiz');
+})
+
+//create quiz route
+app.get('/quiz/create', (req, res) => {
+  res.render('create');
 })
 
 app.listen(PORT, () => {
