@@ -74,7 +74,7 @@ $('#create-button').on('click', function (event) {
 
   // send the form data through an AJAX request
   $.ajax({
-    url: '/quiz/create', // server endpoint
+    url: '/quiz', // server endpoint
     type: 'POST', // type of request
     data: quizData, // data to be sent with the request
     success: function (response) {
