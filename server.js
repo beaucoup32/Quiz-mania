@@ -53,6 +53,10 @@ app.get('/quiz', (req, res) => {
   res.render('quiz');
 })
 
+app.get('/users/:id/quizzes', (req, res) => {
+  res.render('quizzes');
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
