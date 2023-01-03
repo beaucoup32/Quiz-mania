@@ -40,6 +40,10 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
 
+//parse incoming request
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
@@ -58,6 +62,14 @@ app.get('/quiz', (req, res) => {
 app.get('/quiz/create', (req, res) => {
   res.render('create');
 })
+
+//post route to receive data from create ajax POST request
+app.post('/quiz/create', (req, res) => {
+  // req.body will contain the data sent in the request
+  // console.log(req.body);
+  // send a response back to the client
+  res.send('Success');
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
