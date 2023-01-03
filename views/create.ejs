@@ -54,7 +54,7 @@
       <div class="create-quiz-form">
         <h1>Create a new Quiz</h1>
 
-        <form action="/" method="post" class="create-quiz-input">
+        <form class="create-quiz-input">
           <div class="create-quiz-header">
             <Label>Quiz Name</Label>
             <input type="text" name="name">
@@ -70,43 +70,11 @@
               <option value="private">Private</option>
             </select>
           </div>
-
-          <template id="question-template">
-          <div class="question-input">
-            <div class="question-input-field">
-              <Label for="question">Question</Label>
-              <input type="text" name="question">
-            </div>
-            <div>
-              <Label for="choice-a">Choice A</Label>
-              <input type="text" name="choice-a">
-              <Label for="choice-b">Choice B</Label>
-              <input type="text" name="choice-b">
-            </div>
-            <div>
-              <Label for="choice-c">Choice C</Label>
-              <input type="text" name="choice-c">
-              <Label for="choice-d">Choice D</Label>
-              <input type="text" name="choice-d">
-            </div>
-          </div>
-
-          <div class="answer-select">
-            <select id="answer-select" name="answer">
-              <option value="" disabled selected>Correct Answer</option>
-              <option value="answer-a">A</option>
-              <option value="answer-b">B</option>
-              <option value="answer-c">C</option>
-              <option value="answer-d">D</option>
-            </select>
-          </div>
-
-          </template>
-          <div class="add-question-button">
-            <button id="add-question-button">Add Question</button>
-          </div>
-
         </form>
+
+        <div class="add-question-button">
+          <button id="add-question-button">Add Question</button>
+        </div>
 
         <div class="create-button">
           <button id="create-button">Create Quiz</button>
