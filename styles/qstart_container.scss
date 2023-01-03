@@ -1,0 +1,49 @@
+.category {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.quiz-header {
+  text-align: center;
+  font-size: 1.25em;
+  background-color: rgb(113, 28,145);
+}
+
+.question-box {
+  text-align: center;
+  font-size: 1.25em;
+  color: #0abdc6;
+}
+
+.answer {
+  color: #ea00d9;;
+}
+
+.results {
+  display: flex;
+  color: #0abdc6;
+  align-self: center;
+}
+
+.copy-link {
+  color: #0abdc6;
+  align-self: center;
+}
+
+.divider {
+  width: 100%;
+  border-color: #ea00d9;
+}
+
+.answers-container {
+  flex-wrap: wrap;
+  width: 50%;
+  align-self: center;
+
+}
+
+.button {
+  background-color: #091833;
+  border: none;
+}
