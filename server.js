@@ -58,26 +58,31 @@ app.get('/quiz', (req, res) => {
   res.render('quiz');
 })
 
-<<<<<<< HEAD
+
 app.get('/qstart', (req, res) => {
   res.render('qstart');
 })
 
-=======
+
+app.get('/users/:id/quizzes', (req, res) => {
+  res.render('quizzes');
+})
+
+
 //create quiz route
 app.get('/quiz/create', (req, res) => {
   res.render('create');
 })
 
 //post route to receive data from create ajax POST request
-app.post('/quiz/create', (req, res) => {
+app.post('/quiz', (req, res) => {
   // req.body will contain the data sent in the request
   // console.log(req.body);
   // send a response back to the client
   res.send('Success');
 });
 
->>>>>>> 815c8ca336c1fd65d69d032e7046696cf0ff221f
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
