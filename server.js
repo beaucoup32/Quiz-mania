@@ -58,12 +58,10 @@ app.get('/quiz', (req, res) => {
   res.render('quiz');
 })
 
-<<<<<<< HEAD
 app.get('/users/:id/quizzes', (req, res) => {
   res.render('quizzes');
 })
 
-=======
 //create quiz route
 app.get('/quiz/create', (req, res) => {
   res.render('create');
@@ -77,7 +75,6 @@ app.post('/quiz/create', (req, res) => {
   res.send('Success');
 });
 
->>>>>>> 815c8ca336c1fd65d69d032e7046696cf0ff221f
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
