@@ -13,15 +13,14 @@ CREATE TABLE quizzes (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER NOT NULL,
   quiz_name VARCHAR(255) NOT NULL,
-  picture_url(255) NOT NULL,
-  level BOOLEAN
+  level BOOLEAN,
+  public BOOLEAN
 );
 
 DROP TABLE IF EXISTS questions CASCADE;
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY NOT NULL,
   quiz_id INTEGER NOT NULL,
-  quiz_url VARCHAR(255) NOT NULL,
   question VARCHAR(255) NOT NULL,
   choice_a VARCHAR(255) NOT NULL,
   choice_b VARCHAR(255) NOT NULL,
@@ -35,8 +34,7 @@ CREATE TABLE scores (
   id SERIAL PRIMARY KEY NOT NULL,
   player_id INTEGER NOT NULL,
   quiz_id INTEGER NOT NULL,
-  score INTEGER NOT NULL,
-  duration FLOAT NOT NULL
+  score INTEGER NOT NULL
 );
 
 

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <title>Quiz-Mania: Your Quizzes</title>
+    <title>Quiz-Mania: Create a Quiz</title>
 
 
     <!-- TimeAgo CDN -->
@@ -24,17 +25,18 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/user-quiz.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
 
     <!-- Nav Bar CSS -->
     <link rel="stylesheet" href="/styles/nav-bar.css" />
 
     <!-- Quiz Container CSS -->
-    <link rel="stylesheet" href="/styles/quiz-container.css" />
+    <link rel="stylesheet" href="/styles/create-quiz-container.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
+    <script defer src="/scripts/create-quiz.js"></script>
+
   </head>
 
   <body>
@@ -43,35 +45,51 @@
         <h2 class="logo-text">Quiz-Mania</h2>
       </div>
       <div class="nav-options">
-        <button class="login">Login</button>
-        <button class="new-quiz">Create a new Quiz</button>
+        <button class="login">Logout</button>
+        <button class="view-quiz">View your quizzes</button>
       </div>
     </nav>
 
-    <div class="quiz-links-container">
-      <h1>My quizzes: </h1>
-      <article class="quiz-link">
-        <p class="quiz-name">Marvel</p>
-        <div class="buttons">
-          <label class="public-checkbox">Public
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <button>Copy URL</button>
-          <button>Delete</button>
-        </article>
+    <div class="create-quiz-container">
+      <div class="create-quiz-form">
+        <h1>Create a new Quiz</h1>
 
-        <article class="quiz-link .2">
-          <p class="quiz-name">Custom Quiz 1</p>
-          <div class="buttons">
-            <label class="public-checkbox">Public
-              <input type="checkbox">
-              <span class="checkmark"></span>
-            </label>
-            <button>Copy URL</button>
-            <button>Delete</button>
+        <form class="create-quiz-input">
+          <div class="create-quiz-header">
+            <Label>Quiz Name</Label>
+            <input type="text" name="name">
+            <select id="difficulty-select" name="difficulty">
+              <option value="" disabled selected>Difficulty Level</option>
+              <option value="normal">Normal</option>
+              <option value="hard">Hard</option>
+            </select>
+
+            <select id="public-select" name="public">
+              <option value="" disabled selected>Public/Private</option>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
           </div>
-        </article>
+        </form>
+
+        <div class="add-question-button">
+          <button id="add-question-button">Add Question</button>
+        </div>
+
+
+        <div class="create-button">
+          <button id="create-button">Create Quiz</button>
+        </div>
+
+        <div class="cancel-create-button">
+          <button id="cancel-create-button">Cancel</button>
+        </div>
+
+      </div>
+
+
     </div>
   </body>
+
+
 </html>
