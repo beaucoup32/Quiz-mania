@@ -27,15 +27,15 @@ $('#add-question-button').on('click', function (event) {
     </div>
     <div>
     <Label for="choice-a">Choice A</Label>
-    <input type="text" name="choice-a">
+    <input type="text" name="choice_a">
     <Label for="choice-b">Choice B</Label>
-    <input type="text" name="choice-b">
+    <input type="text" name="choice_b">
     </div>
     <div>
     <Label for="choice-c">Choice C</Label>
-    <input type="text" name="choice-c">
+    <input type="text" name="choice_c">
     <Label for="choice-d">Choice D</Label>
-    <input type="text" name="choice-d">
+    <input type="text" name="choice_d">
     </div>
     </div>
 
@@ -74,7 +74,7 @@ $('#create-button').on('click', function (event) {
 
   // send the form data through an AJAX request
   $.ajax({
-    url: '/quiz/create', // server endpoint
+    url: '/quiz', // server endpoint
     type: 'POST', // type of request
     data: quizData, // data to be sent with the request
     success: function (response) {
