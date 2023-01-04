@@ -56,13 +56,13 @@ app.get('/', (req, res) => {
 });
 
 // /login
-app.get('/users/:id', (req, res) => {
+app.get('/user/:id', (req, res) => {
   //set cookie
   req.session.user_id = req.params.id;
 
   // res.cookie('user_id', req.params.id);
 
-  res.redirect('/users/:id/quizzes')
+  res.redirect('/user/:id/quizzes')
 });
 
 //view quiz list main route
@@ -102,7 +102,7 @@ app.get('/marvel', (req, res) => {
 
 
 
-app.get('/users/:id/quizzes', (req, res) => {
+app.get('/user/:id/quizzes', (req, res) => {
   res.render('quizzes');
 })
 
