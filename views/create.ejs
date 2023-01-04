@@ -57,13 +57,20 @@
         <form class="create-quiz-input">
           <div class="create-quiz-header">
             <Label>Quiz Name</Label>
-            <input type="text" name="name">
+            <input type="text" name="quizName">
             <select id="difficulty-select" name="difficulty">
               <option value="" disabled selected>Difficulty Level</option>
               <option value="normal">Normal</option>
               <option value="hard">Hard</option>
             </select>
-
+            <select id="category-select" name="category">
+              <option value="" disabled selected>Category</option>
+              <option value="arts">Arts</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="general">General</option>
+              <option value="history">History</option>
+              <option value="science">Science</option>
+            </select>
             <label class="public-checkbox">Public
               <input type="checkbox">
               <span class="checkmark"></span>

@@ -14,6 +14,7 @@ CREATE TABLE quizzes (
   owner_id INTEGER NOT NULL,
   quiz_name VARCHAR(255) NOT NULL,
   level BOOLEAN,
+  category VARCHAR(255) NOT NULL,
   public BOOLEAN
 );
 
