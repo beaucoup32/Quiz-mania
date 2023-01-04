@@ -6,11 +6,11 @@ INSERT INTO users (name, email, password) VALUES ('Jordan', 'j@j.ca', 'password'
 
 --quizzes table level in boolean false for normal, true for hard
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('1', '1', 'marvel', 'Marvel Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('2', '1', 'marvel', 'Marvel Hard', 't', 't');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('2', '1', 'marvel', 'Marvel Hard', 't', 'f');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('3', '2', 'tekken', 'Tekken Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('4', '2', 'tekken', 'Tekken Hard', 't', 't');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('4', '2', 'tekken', 'Tekken Hard', 't', 'f');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('5', '3', 'marvel', 'Marvel2 Normal', 'f', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('6', '3', 'videogames', 'Videogames normal', 'f', 't');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('6', '3', 'videogames', 'Videogames Normal', 'f', 't');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('7', '3', 'videogames', 'Videogames Hard', 't', 't');
 
 --scores db

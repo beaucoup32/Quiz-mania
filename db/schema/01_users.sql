@@ -12,9 +12,9 @@ DROP TABLE IF EXISTS quizzes CASCADE;
 CREATE TABLE quizzes (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER NOT NULL,
+  category VARCHAR(255) NOT NULL,
   quiz_name VARCHAR(255) NOT NULL,
   level BOOLEAN,
-  category VARCHAR(255) NOT NULL,
   public BOOLEAN
 );
 

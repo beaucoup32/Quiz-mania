@@ -55,12 +55,12 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// /login/2
+// /login
 app.get('/users/:id', (req, res) => {
   //set cookie
   req.session.user_id = req.params.id;
 
-  res.cookie('user_id', req.params.id);
+  // res.cookie('user_id', req.params.id);
 
   res.redirect('/users/:id/quizzes')
 });
