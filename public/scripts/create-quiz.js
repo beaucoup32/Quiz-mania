@@ -80,7 +80,7 @@ $('#create-button').on('click', function (event) {
     success: function (response) {
       console.log(response);
       // redirect to '/users/:id/quizzes'
-      window.location.href = `/users/${:id}/quizzes`;
+      window.location.href = `/users/${req.params.id}/quizzes`;
     },
     error: function (error) {
       console.log(error);
