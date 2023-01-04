@@ -7,6 +7,29 @@ const getUsers = () => {
     });
 };
 
+const getUserQuizzes = (owner_id) => {
+
+  const dbQuery = `
+  SELECT *
+  FROM quizzes
+  WHERE owner_id = $1;
+  `;
+
+  const dbOptions = [owner_id];
+
+  return db.query(dbQuery, dbOptions)
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const getQuizCategories = () => {
+  return db.query('SELECT category FROM quizzes;')
+    .then(data => {
+      return data.rows;
+    });
+}
+
 const addQuestion = (questions) => {
 
   return db.query(`
@@ -63,10 +86,12 @@ const addQuiz = (quiz) => {
       console.log(err.message);
     });
 };
+
 module.exports = {
   getUsers,
   addQuestion,
-  addQuiz
+  addQuiz,
+  getUserQuizzes
 };
 
 

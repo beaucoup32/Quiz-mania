@@ -34,6 +34,8 @@ const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const db = require('./db/connection');
 
+const userQuizzesApiRoutes = require('./routes/userQuizzes-api');
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -41,6 +43,8 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
+app.use('/api/user-quizzes', userQuizzesApiRoutes);
+
 
 //parse incoming request
 app.use(express.json());
@@ -58,11 +62,11 @@ app.get('/', (req, res) => {
 // /login
 app.get('/user/:id', (req, res) => {
   //set cookie
-  req.session.user_id = req.params.id;
+  // req.session.user_id = req.params.id;
 
-  // res.cookie('user_id', req.params.id);
+  res.cookie('user_id', req.params.id);
 
-  res.redirect('/user/:id/quizzes')
+  res.redirect(`/user/${req.params.id}/quizzes`);
 });
 
 //view quiz list main route
@@ -103,6 +107,11 @@ app.get('/marvel', (req, res) => {
 
 
 app.get('/user/:id/quizzes', (req, res) => {
+
+  // if(!req.session.user_id) {
+  //   res.redirect('/quiz')
+  // }
+
   res.render('quizzes');
 })
 

@@ -1,4 +1,10 @@
 // Client facing scripts here
+<<<<<<< HEAD
+
+$(() => {
+
+})
+=======
 // A $( document ).ready() block.
 $( document ).ready(function() {
   console.log( "ready!" );
@@ -11,3 +17,4 @@ $( document ).ready(function() {
 
 
 // $('#create-button').on('click', function (event) {}
+>>>>>>> 7a89e8e7c772456129dc5ae46ae977a8cfa3e1ce
