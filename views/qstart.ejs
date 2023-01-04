@@ -53,7 +53,7 @@
 
         <button class="button">
           <div class="question-box">
-          <h2 class="start-button">Question</h2>
+          <h2 class="start-button"><%= data.question %></h2>
           </div>
         </button>
 
@@ -61,7 +61,7 @@
 
         <button class="button">
           <div class="answer">
-            <p>answer-a</p>
+            <p>a: <%= data.choice_a %></p>
           </div>
         </button>
 
@@ -69,21 +69,21 @@
 
         <button class="button">
           <div class="answer">
-            <p>answer-b</p>
+            <p>b: <%= data.choice_b %></p>
           </div>
         </button>
 
 
         <button class="button">
           <div class="answer">
-            <p>answer-c</p>
+            <p>c: <%= data.choice_c %></p>
           </div>
         </button>
 
 
         <button class="button">
           <div class="answer">
-            <p>answer-d</p>
+            <p>d: <%= data.choice_d %></p>
           </div>
         </button>
       </div>
@@ -91,7 +91,7 @@
       <hr class ="divider">
 
         <div class="results">
-          <h2>results</h2>
+          <h2>Answer: <%= data.answer %></h2>
         </div>
 
         <div class="copy-link">
@@ -101,7 +101,6 @@
       </div>
 
     </div>
-
   </body>
 
 </html>

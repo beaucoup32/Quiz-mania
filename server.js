@@ -8,6 +8,7 @@ const morgan = require('morgan');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+const questionQueries = require('./db/queries/pull_questions');
 
 app.set('view engine', 'ejs');
 
@@ -59,9 +60,35 @@ app.get('/quiz', (req, res) => {
 })
 
 
+//pull question from seeds
 app.get('/qstart', (req, res) => {
-  res.render('qstart');
-})
+  questionQueries.getQuestions()
+    .then(questions => {
+      res.render("qstart", {
+        data: questions[0]
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+app.get('/marvel', (req, res) => {
+  questionQueries.getMarvelQuestions()
+    .then(questions => {
+      res.render("qstart", {
+        data: questions[0]
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 
 
 app.get('/users/:id/quizzes', (req, res) => {
