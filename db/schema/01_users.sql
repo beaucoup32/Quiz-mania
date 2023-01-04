@@ -15,7 +15,8 @@ CREATE TABLE quizzes (
   category VARCHAR(255) NOT NULL,
   quiz_name VARCHAR(255) NOT NULL,
   level BOOLEAN,
-  public BOOLEAN
+  public BOOLEAN,
+  quiz_url VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS questions CASCADE;

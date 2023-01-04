@@ -5,13 +5,13 @@ INSERT INTO users (name, email, password) VALUES ('Jordan', 'j@j.ca', 'password'
 
 
 --quizzes table level in boolean false for normal, true for hard
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('1', '1', 'movies', 'Marvel Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('2', '1', 'movies', 'Marvel Hard', 't', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('3', '2', 'games', 'Tekken Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('4', '2', 'games', 'Tekken Hard', 't', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('5', '3', 'movies', 'Marvel2 Normal', 'f', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('6', '3', 'games', 'Videogames Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public) VALUES ('7', '3', 'games', 'Videogames Hard', 't', 't');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', '1', 'movies', 'Marvel Normal', 'f', 't', 'b6UTxQ');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', '1', 'movies', 'Marvel Hard', 't', 'f', 'i3BoGr');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', '2', 'games', 'Tekken Normal', 'f', 't', 'aJ48lW');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('4', '2', 'games', 'Tekken Hard', 't', 'f');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('5', '3', 'movies', 'Marvel2 Normal', 'f', 'f');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('6', '3', 'games', 'Videogames Normal', 'f', 't');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('7', '3', 'games', 'Videogames Hard', 't', 't');
 
 --scores db
 INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('1', '1', '1', '10');
