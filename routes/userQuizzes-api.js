@@ -6,7 +6,7 @@ const userQueries = require('../db/queries/quizzes')
 router.get('/', (req, res) => {
 
   // const dbOptions = req.params.id;
-  const dbOptions = 2;
+  const dbOptions = 3;
 
   // console.log(req.params);
   userQueries.getUserQuizzes(dbOptions)
