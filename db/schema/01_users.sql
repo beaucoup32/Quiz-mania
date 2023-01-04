@@ -14,6 +14,7 @@ CREATE TABLE quizzes (
   owner_id INTEGER NOT NULL,
   quiz_name VARCHAR(255) NOT NULL,
   level BOOLEAN,
+  category VARCHAR(255) NOT NULL,
   public BOOLEAN
 );
 
@@ -21,6 +22,7 @@ DROP TABLE IF EXISTS questions CASCADE;
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY NOT NULL,
   quiz_id INTEGER NOT NULL,
+  category VARCHAR(255) NOT NULL,
   question VARCHAR(255) NOT NULL,
   choice_a VARCHAR(255) NOT NULL,
   choice_b VARCHAR(255) NOT NULL,

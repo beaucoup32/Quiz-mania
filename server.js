@@ -31,6 +31,7 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
+const db = require('./db/connection');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +52,16 @@ app.use(express.urlencoded({ extended: true }));
 //login page here for the routes
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+// /login/2
+app.get('/users/:id', (req, res) => {
+  //set cookie
+  req.session.user_id = req.params.id;
+
+  res.cookie('user_id', req.params.id);
+
+  res.redirect('/users/:id/quizzes')
 });
 
 //view quiz list main route
@@ -77,7 +88,26 @@ app.get('/quiz/create', (req, res) => {
 //post route to receive data from create ajax POST request
 app.post('/quiz', (req, res) => {
   // req.body will contain the data sent in the request
-  // console.log(req.body);
+  const ownerId = req.params.id;
+  const quizName = req.body.name;
+  const level = Boolean(req.body.difficulty);
+  const public = Boolean(req.body.public);
+
+  const quizData = {
+    id: req.session.user_id,
+    owner_id: ownerId,
+    quiz_name: quizName,
+    level,
+    public
+  };
+
+  const question = req.body.question;
+  const choiceA = req.body.choice_a;
+  const choiceB = req.body.choice_b;
+  const choiceC = req.body.choice_c;
+  const choiceD = req.body.choice_d;
+  const answer = req.body.answer;
+  console.log(req.body);
   // send a response back to the client
   res.send('Success');
 });
