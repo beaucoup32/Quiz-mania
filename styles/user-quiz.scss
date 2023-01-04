@@ -4,8 +4,13 @@
   flex-direction: column;
   width: 75%;
   align-self: center;
-  gap: 1.25em;
   margin-top: 120px;
+}
+
+.user-quiz-container {
+  display: flex;
+  gap: 1.25em;
+  flex-direction: column;
 }
 
 .quiz-link {

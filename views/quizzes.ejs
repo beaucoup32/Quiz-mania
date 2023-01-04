@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/styles/quiz-container.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/userQuizzes.js"></script>
     <script defer src="/scripts/app.js"></script>
   </head>
 
@@ -50,19 +51,9 @@
 
     <div class="quiz-links-container">
       <h1>My quizzes: </h1>
-      <article class="quiz-link">
-        <p class="quiz-name">Marvel</p>
-        <div class="buttons">
-          <label class="public-checkbox">Public
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <button>Copy URL</button>
-          <button>Delete</button>
-        </article>
-
-        <article class="quiz-link .2">
-          <p class="quiz-name">Custom Quiz 1</p>
+      <div class="user-quiz-container">
+        <article class="quiz-link">
+          <p class="quiz-name">Marvel</p>
           <div class="buttons">
             <label class="public-checkbox">Public
               <input type="checkbox">
@@ -70,8 +61,20 @@
             </label>
             <button>Copy URL</button>
             <button>Delete</button>
-          </div>
-        </article>
+          </article>
+
+          <article class="quiz-link .2">
+            <p class="quiz-name">Custom Quiz 1</p>
+            <div class="buttons">
+              <label class="public-checkbox">Public
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <button>Copy URL</button>
+              <button>Delete</button>
+            </div>
+          </article>
+      </div>
     </div>
   </body>
 </html>
