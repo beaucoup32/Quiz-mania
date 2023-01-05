@@ -79,8 +79,9 @@ $('#create-button').on('click', function (event) {
     data: quizData, // data to be sent with the request
     success: function (response) {
       console.log(response);
-      // redirect to '/users/:id/quizzes'
-      window.location.href = `/users/${req.params.id}/quizzes`;
+      // redirect to '/user/:id/quizzes'
+      // window.location.href = `/user/${req.params.id}/quizzes`;
+      window.location.href = '/user/:id/quizzes';
     },
     error: function (error) {
       console.log(error);
