@@ -18,7 +18,7 @@ nav {
 
 .logo {
   color: rgb(234, 0, 217);
-  margin-left: 0.5em;
+  margin-left: 1em;
 }
 
 .logo-text {
@@ -40,10 +40,13 @@ nav {
   cursor: pointer;
   background: none;
   border: solid;
-  border-color: #0abdc6;
-  border-radius: .75em;
-  color: #0abdc6;
+  border-color: rgb(10, 189, 198);
+  border-radius: 1em;
+  color: rgb(10, 189, 198);
+  font-size: 32px;
   font-weight: 600;
+  padding: 0em 0.5em;
+
 }
 
 .nav-button:hover {
@@ -51,3 +54,27 @@ nav {
   color: #ea00d9;
   transition: border-color 200ms, color 200ms;
 }
+
+// .login-button {
+//   background-color: transparent;
+//   border-color: rgb(10, 189, 198);
+//   border: solid;
+//   border-radius: 1em;
+//   color: rgb(10, 189, 198);
+//   font-size: 32px;
+//   font-weight: bold;
+//   padding: 0em 0.5em;
+// }
+
+// .create-quiz-button {
+//     background-color: transparent;
+//     border-color: rgb(10, 189, 198);
+//     border: solid;
+//     border-radius: 1em;
+//     color: rgb(10, 189, 198);
+//     font-size: 32px;
+//     font-weight: bold;
+//     padding: 0em 0.5em;
+//     margin-right: 1em;
+// }
+
