@@ -5,19 +5,19 @@ INSERT INTO users (name, email, password) VALUES ('Jordan', 'j@j.ca', 'password'
 
 
 --quizzes table level in boolean false for normal, true for hard
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', '1', 'movies', 'Marvel Normal', 'f', 't', 'b6UTxQ');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', '1', 'movies', 'Marvel Hard', 't', 'f', 'i3BoGr');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', '2', 'games', 'Tekken Normal', 'f', 't', 'aJ48lW');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('4', '2', 'games', 'Tekken Hard', 't', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('5', '3', 'movies', 'Marvel2 Normal', 'f', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('6', '3', 'games', 'Videogames Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('7', '3', 'games', 'Videogames Hard', 't', 't');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', 'movies', 'Marvel Normal', 'f', 't', 'b6UTxQ');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', 'movies', 'Marvel Hard', 't', 'f', 'i3BoGr');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', 'games', 'Tekken Normal', 'f', 't', 'aJ48lW');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', 'games', 'Tekken Hard', 't', 'f', 'j9Yi8s');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', 'movies', 'Marvel2 Normal', 'f', 'f', '8mL3n1');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', 'games', 'Videogames Normal', 'f', 't', 'w9l2Cv');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', 'games', 'Videogames Hard', 't', 't', 'uK0q4U');
 
 --scores db
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('1', '1', '1', '10');
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('2', '1', '2', '8');
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('3', '2', '3', '10');
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('4', '2', '4', '9');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('1', '1', '10');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('1', '2', '8');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('2', '3', '10');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('2', '4', '9');
 
 
 --questions for marvel normal
@@ -81,7 +81,6 @@ INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Who is the 3rd herald of Galactus?', 'Morg', 'Nova', 'Air Walker', 'Silver Surfer', 'a' );
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'What is the name of Charles Xaviers sister?', 'La Landra', 'Moira', 'Jean', 'Cassandra', 'd');
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Which character didnt wear the Iron Man armor?', 'Aunt May', 'Dr. Doom', 'Reed Richards', 'Mary Jane Watson', 'c');
-INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Which character wasnt part of a Sinister 6?', 'Prowler', 'Venom', 'Carnage', 'Grim Reaper', 'b');
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Who didnt kill the Marvel Universe?', 'Wolverine', 'Dead Pool', 'The Punisher', 'Blade', 'd');
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Who wasnt a Sorcerer Supreme?', 'Wanda Maximoff', 'Loki', 'Illyana Rasputina', 'Xhoohx', 'a');
 

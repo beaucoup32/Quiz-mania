@@ -30,7 +30,6 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.static('public'));
-
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
@@ -40,6 +39,8 @@ const db = require('./db/connection');
 
 const userQuizzesApiRoutes = require('./routes/userQuizzes-api');
 const QuizCategoryRoutes = require('./routes/quiz-categories-api');
+const { addQuiz, addQuestion } = require('./db/queries/quizzes');
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -49,6 +50,8 @@ app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
 app.use('/api/user-quizzes', userQuizzesApiRoutes);
 app.use('/api/quiz-categories', QuizCategoryRoutes)
+
+
 
 //parse incoming request
 app.use(express.json());
@@ -126,21 +129,31 @@ app.get('/quiz/create', (req, res) => {
   res.render('create');
 })
 
+
+//generate random id for quizURL
+const characters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+function generateRandomString() {
+  let result = "";
+  const length = 6;
+  const charactersLength = characters.length;
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
 //post route to receive data from create ajax POST request
 app.post('/quiz', (req, res) => {
   // req.body will contain the data sent in the request
-  const ownerId = req.params.id;
-  const quizName = req.body.name;
+
+  const ownerId = req.cookies.user_id;
+  const category = req.body.category;
+  const quizName = req.body.quizName;
   const level = Boolean(req.body.difficulty);
   const public = Boolean(req.body.public);
-
-  const quizData = {
-    id: req.session.user_id,
-    owner_id: ownerId,
-    quiz_name: quizName,
-    level,
-    public
-  };
+  const quizUrl = generateRandomString();
 
   const question = req.body.question;
   const choiceA = req.body.choice_a;
@@ -148,7 +161,49 @@ app.post('/quiz', (req, res) => {
   const choiceC = req.body.choice_c;
   const choiceD = req.body.choice_d;
   const answer = req.body.answer;
-  console.log(req.body);
+
+  const quizData = {
+    owner_id: ownerId,
+    category,
+    quiz_name: quizName,
+    level,
+    public,
+    quiz_url: quizUrl
+  };
+
+  // call the addQuiz function and pass it the quizData object
+  addQuiz(quizData)
+    .then((result) => {
+      console.log(result);
+
+      //extract id of inserted quiz from result
+      const quizId = result.id;
+      //create question object with data
+      const questionData = {
+        quiz_id: quizId,
+        category,
+        question,
+        choice_a: choiceA,
+        choice_b: choiceB,
+        choice_c: choiceC,
+        choice_d: choiceD,
+        answer
+      }
+
+      addQuestion(questionData)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+
+  // console.log(req.body);
   // send a response back to the client
   res.send('Success');
 });
