@@ -61,7 +61,7 @@ $(() => {
   } else {
 
     $(".login").html('Login');
-  };
+  }
 
   $('.login').on('click', function(event) {
     if (Cookies.get("user_id")) {
