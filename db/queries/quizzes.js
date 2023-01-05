@@ -31,7 +31,7 @@ const getQuizCategories = () => {
 }
 
 const addQuestion = (questions) => {
-  console.log(questions)
+  // console.log(questions)
   return db.query(`
   INSERT INTO questions (
     quiz_id,
@@ -54,7 +54,7 @@ const addQuestion = (questions) => {
     questions.answer
   ])
     .then((result) => {
-      console.log(result.rows[0])
+      // console.log(result.rows[0])
       return result.rows[0];
     })
     .catch((err) => {
@@ -83,7 +83,7 @@ const addQuiz = (quiz) => {
     quiz.quiz_url
   ])
     .then((result) => {
-      console.log(result.rows[0])
+      // console.log(result.rows[0])
       return result.rows[0];
     })
     .catch((err) => {
