@@ -8,10 +8,10 @@ INSERT INTO users (name, email, password) VALUES ('Jordan', 'j@j.ca', 'password'
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', '1', 'movies', 'Marvel Normal', 'f', 't', 'b6UTxQ');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', '1', 'movies', 'Marvel Hard', 't', 'f', 'i3BoGr');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', '2', 'games', 'Tekken Normal', 'f', 't', 'aJ48lW');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('4', '2', 'games', 'Tekken Hard', 't', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('5', '3', 'movies', 'Marvel2 Normal', 'f', 'f');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('6', '3', 'games', 'Videogames Normal', 'f', 't');
-INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('7', '3', 'games', 'Videogames Hard', 't', 't');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('4', '2', 'games', 'Tekken Hard', 't', 'f', 'j9Yi8s');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('5', '3', 'movies', 'Marvel2 Normal', 'f', 'f', '8mL3n1');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('6', '3', 'games', 'Videogames Normal', 'f', 't', 'w9l2Cv');
+INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('7', '3', 'games', 'Videogames Hard', 't', 't', 'uK0q4U');
 
 --scores db
 INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('1', '1', '1', '10');
