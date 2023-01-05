@@ -96,8 +96,7 @@ const category = $('#category-select').val();
 
 if (quizName !== "" && difficulty !== "" && category !== "" && answer !== "") {
   $('#create-button').prop('disabled', true);
-}
-
+};
 
 $('#create-button').on('click', function (event) {
   event.preventDefault(); // prevent the form from submitting normally
@@ -113,7 +112,12 @@ $('#create-button').on('click', function (event) {
     success: function (response) {
       console.log(response);
       // redirect to '/users/:id/quizzes'
-      window.location.href = `/user/${req.param.id}/quizzes`;
+      // window.location.href = `/user/${req.param.id}/quizzes`;
+      // redirect to '/user/:id/quizzes'
+      const userId = response.owner_id;
+
+      //window.location.href = '/user/:id/quizzes'; undefined userId at the moment
+      window.location.href = `/user/${userId}/quizzes`;
     },
     error: function (error) {
       console.log(error);
@@ -121,5 +125,52 @@ $('#create-button').on('click', function (event) {
   });
 });
 
+$(()=>{
+  $("nav").on("click", "button[name='home-button']", function (event) {
+    event.preventDefault();
 
+    window.location.href = "/quiz";
+  });
+
+  const $myQuizzes = $("<button name='MyQuizzes' class='nav-button my-quizzes'>My Quizzes</button>");
+
+   //check cookie for login
+   if (Cookies.get("user_id")) {
+
+    $(".login").html('Logout');
+
+    $(".nav-options").prepend($myQuizzes);
+
+  } else {
+
+    $(".login").html('Login');
+  }
+
+
+  $('.nav-options').on('click','.login', function(event) {
+    event.preventDefault();
+
+    if (Cookies.get("user_id")) {
+
+      $(".my-quizzes").remove();
+      Cookies.remove('user_id');
+
+      return window.location.href = '/quiz';
+
+    } else {
+
+      // set user login
+      Cookies.set('user_id', 3);
+      $(".login").html('Logout');
+      $(".nav-options").prepend($myQuizzes);
+
+    };
+  });
+
+  $('.nav-options').on('click', "button[name='MyQuizzes']", function(event) {
+    event.preventDefault();
+
+    window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
+  });
+});
 

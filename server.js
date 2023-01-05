@@ -51,8 +51,6 @@ app.use('/users', usersRoutes);
 app.use('/api/user-quizzes', userQuizzesApiRoutes);
 app.use('/api/quiz-categories', QuizCategoryRoutes)
 
-
-
 //parse incoming request
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

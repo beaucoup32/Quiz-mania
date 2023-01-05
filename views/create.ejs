@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/styles/create-quiz-container.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script defer src="/scripts/app.js"></script>
     <script defer src="/scripts/create-quiz.js"></script>
 
@@ -42,11 +43,13 @@
   <body>
     <nav>
       <div class="logo">
-        <h2 class="logo-text">Quiz-Mania</h2>
+        <button class="logo-button" name="home-button">
+          <h2 class="logo-text">Quiz-Mania</h2>
+        </button>
       </div>
       <div class="nav-options">
-        <button class="login">Logout</button>
-        <button class="view-quiz">View your quizzes</button>
+        <button class="nav-button login">Login</button>
+        <button class="nav-button" name="create-quiz">Create a new Quiz</button>
       </div>
     </nav>
 
