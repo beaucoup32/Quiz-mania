@@ -12,12 +12,19 @@ INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url)
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('5', '3', 'marvel', 'Marvel2 Normal', 'f', 'f');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('6', '3', 'games', 'Videogames Normal', 'f', 't');
 INSERT INTO quizzes (id, owner_id, category, quiz_name, level, public, quiz_url) VALUES ('7', '3', 'games', 'Videogames Hard', 't', 't');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', 'movies', 'Marvel Normal', 'f', 't', 'b6UTxQ');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('1', 'movies', 'Marvel Hard', 't', 'f', 'i3BoGr');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', 'games', 'Tekken Normal', 'f', 't', 'aJ48lW');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('2', 'games', 'Tekken Hard', 't', 'f', 'j9Yi8s');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', 'movies', 'Marvel2 Normal', 'f', 'f', '8mL3n1');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', 'games', 'Videogames Normal', 'f', 't', 'w9l2Cv');
+INSERT INTO quizzes (owner_id, category, quiz_name, level, public, quiz_url) VALUES ('3', 'games', 'Videogames Hard', 't', 't', 'uK0q4U');
 
 --scores db
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('1', '1', '1', '10');
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('2', '1', '2', '8');
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('3', '2', '3', '10');
-INSERT INTO scores (id, player_id, quiz_id, score) VALUES ('4', '2', '4', '9');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('1', '1', '10');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('1', '2', '8');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('2', '3', '10');
+INSERT INTO scores (player_id, quiz_id, score) VALUES ('2', '4', '9');
 
 
 --questions for marvel normal
@@ -84,6 +91,16 @@ INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'marvel', 'Which character wasnt part of a Sinister 6?', 'Prowler', 'Venom', 'Carnage', 'Grim Reaper', 'b');
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'marvel', 'Who didnt kill the Marvel Universe?', 'Wolverine', 'Dead Pool', 'The Punisher', 'Blade', 'd');
 INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'marvel', 'Who wasnt a Sorcerer Supreme?', 'Wanda Maximoff', 'Loki', 'Illyana Rasputina', 'Xhoohx', 'a');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'What comic first introduced the Infinite Stones?', 'Marvel Premiere #1', 'Marvel Team-Up #55', 'The Infinite Gauntlet #1', 'Guardians of the Galaxy #1', 'a' );
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'What year was Captain America born?', '1915', '1917', '1920', '1922', 'c'  );
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Which character shares their power origin with Dr.Strang and the Bands of Cyttorack?', 'Wanda Maximoff', 'Brother Voodoo', 'Juggernaut', 'High Evolutionary', 'c');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'What animal shares the powers of THOR?', 'dog', 'frog', 'cat', 'pig', 'b');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'What year did Thors sister Angela debut in comics?', '1975', '1993', '2002', '2020', 'b');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Who is the 3rd herald of Galactus?', 'Morg', 'Nova', 'Air Walker', 'Silver Surfer', 'a' );
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'What is the name of Charles Xaviers sister?', 'La Landra', 'Moira', 'Jean', 'Cassandra', 'd');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Which character didnt wear the Iron Man armor?', 'Aunt May', 'Dr. Doom', 'Reed Richards', 'Mary Jane Watson', 'c');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Who didnt kill the Marvel Universe?', 'Wolverine', 'Dead Pool', 'The Punisher', 'Blade', 'd');
+INSERT INTO questions (quiz_id, category, question, choice_a, choice_b, choice_c, choice_d, answer) VALUES ('5', 'movies', 'Who wasnt a Sorcerer Supreme?', 'Wanda Maximoff', 'Loki', 'Illyana Rasputina', 'Xhoohx', 'a');
 
 
 --questions for videogames normal

@@ -34,46 +34,27 @@
     <link rel="stylesheet" href="/styles/quiz-container.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script src="/scripts/userQuizzes.js"></script>
-    <script defer src="/scripts/app.js"></script>
+    <!-- <script defer src="/scripts/app.js"></script> -->
   </head>
 
   <body>
     <nav>
       <div class="logo">
-        <h2 class="logo-text">Quiz-Mania</h2>
+        <button class="logo-button" name="home-button">
+          <h2 class="logo-text">Quiz-Mania</h2>
+        </button>
       </div>
       <div class="nav-options">
-        <button class="login">Login</button>
-        <button class="new-quiz">Create a new Quiz</button>
+        <button class="nav-button login">Login</button>
+        <button class="nav-button" name="create-quiz">Create a new Quiz</button>
       </div>
     </nav>
 
     <div class="quiz-links-container">
       <h1>My quizzes: </h1>
       <div class="user-quiz-container">
-        <article class="quiz-link">
-          <p class="quiz-name">Marvel</p>
-          <div class="buttons">
-            <label class="public-checkbox">Public
-              <input type="checkbox">
-              <span class="checkmark"></span>
-            </label>
-            <button>Copy URL</button>
-            <button>Delete</button>
-          </article>
-
-          <article class="quiz-link .2">
-            <p class="quiz-name">Custom Quiz 1</p>
-            <div class="buttons">
-              <label class="public-checkbox">Public
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-              <button>Copy URL</button>
-              <button>Delete</button>
-            </div>
-          </article>
       </div>
     </div>
   </body>

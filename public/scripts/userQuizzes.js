@@ -1,16 +1,14 @@
-
 const createQuizElement = (quizData) => {
-
   let $quizElement = $(`
   <article class="quiz-link">
   <p class="quiz-name">${quizData.quiz_name}</p>
   <div class="buttons">
     <label class="public-checkbox">Public
-      <input type="checkbox">
+      <input type="checkbox" name="public-checkbox">
       <span class="checkmark"></span>
     </label>
-    <button>Copy URL</button>
-    <button>Delete</button>
+    <button name='copy-link' type="button">Copy URL</button>
+    <button name="delete-quiz" type="button">Delete</button>
   </article>
   `);
 
@@ -19,26 +17,66 @@ const createQuizElement = (quizData) => {
 
 const renderQuizzes = (quizArr) => {
   //clear quizzes section
-  $('.user-quiz-container').empty;
+  $(".user-quiz-container").empty;
 
   // add new quizzes to top
   for (let quiz of quizArr) {
     const $quizElement = createQuizElement(quiz);
-    $('.user-quiz-container').prepend($quizElement);
+
+    if (quiz.public) {
+      $("input[name='public-checkbox']").prop("checked", true);
+    }
+    $(".user-quiz-container").prepend($quizElement);
   }
 };
 
 const loadQuizzes = () => {
-
-  $.getJSON('/api/user-quizzes/', (data) => {
-    console.log(data);
+  $.getJSON("/api/user-quizzes/", (data) => {
+    console.log(data.quizzes);
     renderQuizzes(data.quizzes);
   });
 };
 
 $(() => {
-
-  console.log('hello');
   loadQuizzes();
 
-})
+  $(".user-quiz-container").on(
+    "click",
+    "button[name='delete-quiz']",
+    function (event) {
+      event.preventDefault();
+
+      // delete quiz element from container
+      $(this).parent().parent().remove();
+    }
+  );
+
+  $(":button[name='create-quiz']").on("click", function (event) {
+    event.preventDefault();
+
+    window.location.href = "/quiz/create";
+  });
+
+  $("nav").on("click", "button[name='home-button']", function (event) {
+    event.preventDefault();
+
+    window.location.href = "/quiz";
+  });
+
+  //check cookie for login
+  if (!Cookies.get("user_id")) {
+
+    return window.location.href = "/quiz";
+  };
+
+  $(".login").html('Logout');
+  
+  $(".login").on("click", function (event) {
+
+    if (Cookies.get("user_id")) {
+
+      Cookies.remove("user_id");
+      window.location.href = "/quiz";
+    };
+  });
+});
