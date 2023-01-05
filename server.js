@@ -130,7 +130,7 @@ app.post('/quiz', (req, res) => {
   const public = Boolean(req.body.public);
 
   const quizData = {
-    id: req.session.user_id,
+    id: req.params.id,
     owner_id: ownerId,
     quiz_name: quizName,
     level,
