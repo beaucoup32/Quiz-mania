@@ -1,3 +1,18 @@
+button {
+  cursor: pointer;
+  background: none;
+  border: solid;
+  border-color: #0abdc6;
+  border-radius: .75em;
+  color: #0abdc6;
+  font-weight: 600;
+}
+
+button:hover {
+  border-color: #ea00d9;
+  color: #ea00d9;
+  transition: border-color 200ms, color 200ms;
+}
 
 .quiz-links-container {
   display: flex;
@@ -20,6 +35,14 @@
   padding-left: 1em;
   padding-right: 1em;
   border-radius: 1em;
+}
+
+.quiz-link:hover {
+  border: solid;
+  border-color: #0abdc6;
+  cursor: pointer;
+  box-shadow: 12px 12px 3px #051021;
+  transition: border 200ms, border-color 200ms;
 }
 
 .buttons {

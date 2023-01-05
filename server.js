@@ -27,6 +27,8 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
+
+app.use(cookieParser());
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
@@ -37,7 +39,7 @@ const usersRoutes = require('./routes/users');
 const db = require('./db/connection');
 
 const userQuizzesApiRoutes = require('./routes/userQuizzes-api');
-
+const QuizCategoryRoutes = require('./routes/quiz-categories-api');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -46,12 +48,11 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
 app.use('/api/user-quizzes', userQuizzesApiRoutes);
-
+app.use('/api/quiz-categories', QuizCategoryRoutes)
 
 //parse incoming request
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -111,11 +112,11 @@ app.get('/marvel', (req, res) => {
 
 app.get('/user/:id/quizzes', (req, res) => {
 
-  // if(!req.session.user_id) {
-  //   res.redirect('/quiz')
-  // }
+  if(!req.cookies.user_id) {
+    res.redirect('/quiz')
+  }
   console.log('test', req.cookies.user_id);
-  
+
   res.render('quizzes');
 })
 

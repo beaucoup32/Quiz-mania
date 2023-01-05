@@ -27,3 +27,27 @@ nav {
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
+
+.logo-button {
+  cursor: pointer;
+  height: 120px;
+  background: none;
+  border: none;
+  color: rgb(234, 0, 217);
+}
+
+.nav-button {
+  cursor: pointer;
+  background: none;
+  border: solid;
+  border-color: #0abdc6;
+  border-radius: .75em;
+  color: #0abdc6;
+  font-weight: 600;
+}
+
+.nav-button:hover {
+  border-color: #ea00d9;
+  color: #ea00d9;
+  transition: border-color 200ms, color 200ms;
+}

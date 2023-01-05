@@ -24,7 +24,7 @@ const getUserQuizzes = (owner_id) => {
 };
 
 const getQuizCategories = () => {
-  return db.query('SELECT category FROM quizzes;')
+  return db.query('SELECT DISTINCT category FROM quizzes;')
     .then(data => {
       return data.rows;
     });
@@ -91,7 +91,8 @@ module.exports = {
   getUsers,
   addQuestion,
   addQuiz,
-  getUserQuizzes
+  getUserQuizzes,
+  getQuizCategories
 };
 
 
