@@ -76,11 +76,14 @@ app.get('/quiz', (req, res) => {
 
 
 //pull question from seeds
+//route pulls from all questions in data base
 app.get('/qstart', (req, res) => {
+  console.log("here")
   questionQueries.getQuestions()
     .then(questions => {
+      console.log("hello", questions)
       res.render("qstart", {
-        data: questions[0]
+        data: questions
       })
     })
     .catch(err => {
@@ -90,9 +93,12 @@ app.get('/qstart', (req, res) => {
     });
 });
 
+
+//route pulls from marvel questions in data base
 app.get('/marvel', (req, res) => {
   questionQueries.getMarvelQuestions()
     .then(questions => {
+      console.log('marvel route handler', questions)
       res.render("qstart", {
         data: questions[0]
       })
@@ -104,7 +110,37 @@ app.get('/marvel', (req, res) => {
     });
 });
 
+//route pulls from games questions in data base
+app.get('/games', (req, res) => {
+  questionQueries.getGamesQuestions()
+    .then(questions => {
+      console.log('games route handler', questions)
+      res.render("qstart", {
+        data: questions[0]
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
+//route pulls from tekken questions in data base
+app.get('/tekken', (req, res) => {
+  questionQueries.getTekkenQuestions()
+    .then(questions => {
+      console.log('tekken route handler', questions)
+      res.render("qstart", {
+        data: questions[0]
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
 app.get('/user/:id/quizzes', (req, res) => {
 

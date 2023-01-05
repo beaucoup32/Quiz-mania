@@ -1,20 +1,25 @@
 // Client facing scripts here
-<<<<<<< HEAD
-
-$(() => {
-
-})
-=======
 // A $( document ).ready() block.
 $( document ).ready(function() {
   console.log( "ready!" );
 
   $('.answer').on('click', function(event) {
-    console.log(event)
-    $('.results').css("visibility", "visible");
+    const userChoice = $(this).text().trim()[0]
+    console.log(userChoice)
+    const answer = $(this).parent().parent().next().next().first().text().trim()
+    const correctAnswer = answer[answer.length - 1]
+    console.log(correctAnswer)
+    if (userChoice === correctAnswer) {
+    let count = parseInt($('#final-count').text())
+    console.log(count)
+    count ++
+    $('#final-count').text(count)
+    }
+    $(this).parent().parent().next().next().css("visibility", "visible");
   })
 });
 
 
 // $('#create-button').on('click', function (event) {}
->>>>>>> 7a89e8e7c772456129dc5ae46ae977a8cfa3e1ce
+
+
