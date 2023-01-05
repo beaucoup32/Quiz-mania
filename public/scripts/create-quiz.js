@@ -22,26 +22,26 @@ $('#add-question-button').on('click', function (event) {
     const $question = $(`
     <div class="question-input">
     <div class="question-input-field">
-    <Label for="question">Question</Label>
-    <input type="text" name="question">
+    <Label for="question">Question*</Label>
+    <input type="text" name="question" required>
     </div>
     <div>
-    <Label for="choice-a">Choice A</Label>
-    <input type="text" name="choice_a">
-    <Label for="choice-b">Choice B</Label>
-    <input type="text" name="choice_b">
+    <Label for="choice-a">Choice A*</Label>
+    <input type="text" name="choice_a" required>
+    <Label for="choice-b">Choice B*</Label>
+    <input type="text" name="choice_b" required>
     </div>
     <div>
-    <Label for="choice-c">Choice C</Label>
-    <input type="text" name="choice_c">
-    <Label for="choice-d">Choice D</Label>
-    <input type="text" name="choice_d">
+    <Label for="choice-c">Choice C*</Label>
+    <input type="text" name="choice_c" required>
+    <Label for="choice-d">Choice D*</Label>
+    <input type="text" name="choice_d" required>
     </div>
     </div>
 
     <div class="answer-select">
-    <select id="answer-select" name="answer">
-    <option value="" disabled selected>Correct Answer</option>
+    <select id="answer-select" name="answer" required>
+    <option value="" disabled selected>Choose Answer*</option>
     <option value="answer-a">A</option>
     <option value="answer-b">B</option>
     <option value="answer-c">C</option>
