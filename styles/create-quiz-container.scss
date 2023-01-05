@@ -63,9 +63,14 @@ select {
   border-radius: 0.5em;
   border: solid;
   border-color: rgb(10, 189, 198);
-  color: rgb(234, 0, 217);
+  color: rgb(10, 189, 198);
   margin: 1em;
   padding: 0em 0.5em;
+}
+
+#add-question-button:hover {
+  border-color: rgb(234, 0, 217);
+  color: rgb(234, 0, 217);
 }
 
 // #add-question-button:disabled {
@@ -82,22 +87,9 @@ select {
   margin: 1em;
 }
 
-#create-button {
-  background-color: transparent;
+#cancel-create-button:hover {
   border-color: rgb(234, 0, 217);
-  border: solid;
-  border-radius: 1em;
   color: rgb(234, 0, 217);
-  font-size: 32px;
-  font-weight: bold;
-  margin: 1em;
-  padding: 0em 0.5em;
-}
-
-#create-button:disabled {
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.5;
 }
 
 .public-checkbox {
@@ -160,4 +152,25 @@ select {
   transform: rotate(45deg);
 }
 
+#create-button {
+  background-color: transparent;
+  border-color: rgb(234, 0, 217);
+  border: solid;
+  border-radius: 1em;
+  color: rgb(234, 0, 217);
+  font-size: 32px;
+  font-weight: bold;
+  margin: 1em;
+  padding: 0em 0.5em;
+}
 
+#create-button:hover {
+  border-radius: .25em;
+  transition: border-radius 400ms 200ms;
+}
+
+#create-button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
