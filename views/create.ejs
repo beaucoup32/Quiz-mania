@@ -56,14 +56,14 @@
 
         <form class="create-quiz-input">
           <div class="create-quiz-header">
-            <Label>Quiz Name</Label>
+            <Label>Quiz Name*</Label>
             <input type="text" name="quizName">
-            <select id="difficulty-select" name="difficulty">
+            <select id="difficulty-select" name="difficulty" required="required">
               <option value="" disabled selected>Difficulty Level</option>
               <option value="normal">Normal</option>
               <option value="hard">Hard</option>
             </select>
-            <select id="category-select" name="category">
+            <select id="category-select" name="category" required="required">
               <option value="" disabled selected>Category</option>
               <option value="games">Games</option>
               <option value="general">General</option>
