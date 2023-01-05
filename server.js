@@ -48,8 +48,6 @@ app.use('/users', usersRoutes);
 app.use('/api/user-quizzes', userQuizzesApiRoutes);
 
 
-
-
 //parse incoming request
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

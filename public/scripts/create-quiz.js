@@ -96,8 +96,7 @@ const category = $('#category-select').val();
 
 if (quizName !== "" && difficulty !== "" && category !== "" && answer !== "") {
   $('#create-button').prop('disabled', true);
-}
-
+};
 
 $('#create-button').on('click', function (event) {
   event.preventDefault(); // prevent the form from submitting normally
@@ -113,8 +112,10 @@ $('#create-button').on('click', function (event) {
     success: function (response) {
       console.log(response);
       // redirect to '/user/:id/quizzes'
-      // window.location.href = `/user/${req.params.id}/quizzes`;
-      window.location.href = '/user/:id/quizzes';
+      const userId = response.owner_id;
+
+      //window.location.href = '/user/:id/quizzes'; undefined userId at the moment
+      window.location.href = `/user/${userId}/quizzes`;
     },
     error: function (error) {
       console.log(error);

@@ -18,7 +18,7 @@ nav {
 
 .logo {
   color: rgb(234, 0, 217);
-  margin-left: 0.5em;
+  margin-left: 1em;
 }
 
 .logo-text {
@@ -26,4 +26,27 @@ nav {
   border-radius: 1em;
   padding-left: 0.5em;
   padding-right: 0.5em;
+}
+
+.login-button {
+  background-color: transparent;
+  border-color: rgb(10, 189, 198);
+  border: solid;
+  border-radius: 1em;
+  color: rgb(10, 189, 198);
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0em 0.5em;
+}
+
+.create-quiz-button {
+    background-color: transparent;
+    border-color: rgb(10, 189, 198);
+    border: solid;
+    border-radius: 1em;
+    color: rgb(10, 189, 198);
+    font-size: 32px;
+    font-weight: bold;
+    padding: 0em 0.5em;
+    margin-right: 1em;
 }
