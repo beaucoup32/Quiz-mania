@@ -53,26 +53,41 @@ $(() => {
   });
 
 
+  const $myQuizzes = $("<button name='MyQuizzes' class='nav-button my-quizzes'>My Quizzes</button>");
+
   //check cookie for login
   if (Cookies.get("user_id")) {
 
     $(".login").html('Logout');
+
+    $(".nav-options").prepend($myQuizzes);
 
   } else {
 
     $(".login").html('Login');
   }
 
-  $('.login').on('click', function(event) {
+  $('.nav-options').on('click','.login', function(event) {
+    event.preventDefault();
+
     if (Cookies.get("user_id")) {
 
+      $(".my-quizzes").remove();
       Cookies.remove('user_id');
       $(".login").html('Login');
+
     } else {
 
       Cookies.set('user_id', 3);
       $(".login").html('Logout');
+      $(".nav-options").prepend($myQuizzes);
+
     };
   });
 
+  $('.nav-options').on('click', "button[name='MyQuizzes']", function(event) {
+    event.preventDefault();
+
+    window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
+  });
 })
