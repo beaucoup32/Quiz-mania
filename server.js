@@ -5,6 +5,8 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -49,6 +51,7 @@ app.use('/api/user-quizzes', userQuizzesApiRoutes);
 //parse incoming request
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -111,7 +114,8 @@ app.get('/user/:id/quizzes', (req, res) => {
   // if(!req.session.user_id) {
   //   res.redirect('/quiz')
   // }
-
+  console.log('test', req.cookies.user_id);
+  
   res.render('quizzes');
 })
 

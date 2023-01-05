@@ -1,14 +1,17 @@
+const cookieParser = require('cookie-parser');
 const express = require('express');
+const app = express();
+app.use(cookieParser());
 const router  = express.Router();
-const db = require('../db/connection');
-const userQueries = require('../db/queries/quizzes')
+const userQueries = require('../db/queries/quizzes');
+
 
 router.get('/', (req, res) => {
 
-  // const dbOptions = req.params.id;
-  const dbOptions = 3;
+  // const dbOptions = req.cookie.id;
+  const dbOptions = req.cookies.user_id;
 
-  // console.log(req.params);
+  console.log('test', dbOptions);
   userQueries.getUserQuizzes(dbOptions)
     .then(quizzes => {
       res.json({ quizzes });
