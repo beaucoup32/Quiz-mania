@@ -196,6 +196,7 @@ app.get('/user/:id/quizzes', (req, res) => {
 
 //create quiz route
 app.get('/quiz/create', (req, res) => {
+  
   res.render('create');
 })
 
