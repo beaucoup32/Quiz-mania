@@ -66,10 +66,7 @@ $(() => {
           loadQuizzes();
         },
       });
-
-
-    }
-  );
+  });
 
   $(":button[name='create-quiz']").on("click", function (event) {
     event.preventDefault();
