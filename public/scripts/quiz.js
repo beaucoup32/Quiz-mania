@@ -14,7 +14,7 @@ const createElement = (data) => {
 };
 
 const renderElements = (elementArr) => {
-  $('.category').empty;
+
 
   for (let element of elementArr) {
     const $element = createElement(element);
@@ -43,6 +43,16 @@ $(() => {
   $('.category').on('click', "button[name='start-quiz']", function(event) {
     event.preventDefault();
 
+    const $this = $(this).children()[1].innerHTML;
+
+    // console.log($this);
+
+    window.location.href = `/${$this}`;
+  });
+
+  $(":button[name='random-quiz']").on('click', function(event) {
+    event.preventDefault();
+
     window.location.href = '/qstart';
   });
 
@@ -52,6 +62,12 @@ $(() => {
     window.location.href = '/quiz/create';
   });
 
+
+  $("nav").on("click", "button[name='home-button']", function (event) {
+    event.preventDefault();
+
+    window.location.href = "/quiz";
+  });
 
   const $myQuizzes = $("<button name='MyQuizzes' class='nav-button my-quizzes'>My Quizzes</button>");
 
@@ -78,6 +94,7 @@ $(() => {
 
     } else {
 
+      // change user cookie here (quiz.js, create-quiz.js, app.js, )
       Cookies.set('user_id', 3);
       $(".login").html('Logout');
       $(".nav-options").prepend($myQuizzes);
