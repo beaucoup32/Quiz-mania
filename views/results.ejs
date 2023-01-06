@@ -48,59 +48,7 @@
     </nav>
     <div class="question">
       <div class="category">
-        <h1>Categories</h1>
-        <div class="score">
-        <Label class="score">Score</Label>
-        <p class="score" id="final-count">0</p>
-        <%for (let item of data) {%>
-        </div>
-<section class="game-section">
-          <button class="button">
-          <div class="question-box">
-          <h2 class="start-button"><%= item.question %></h2>
-          </div>
-        </button>
-
-      <div class="answers-container " data-id="<%=item.id%>">
-
-        <button class="button button-answer">
-          <div class="answer">
-            <p>a: <%= item.choice_a %></p>
-          </div>
-        </button>
-
-        <!-- <button type="submit" class="tweet-button">Tweet</button> -->
-
-        <button class="button button-answer">
-          <div class="answer">
-            <p>b: <%= item.choice_b %></p>
-          </div>
-        </button>
-
-
-        <button class="button button-answer">
-          <div class="answer">
-            <p>c: <%= item.choice_c %></p>
-          </div>
-        </button>
-
-
-        <button class="button button-answer">
-          <div class="answer">
-            <p>d: <%= item.choice_d %></p>
-          </div>
-        </button>
-      </div>
-
-      <hr class ="divider">
-        
-        <div class="results">
-          <h2>Answer: <%= item.answer %></h2>
-        </div>
-        <%}%>
-      <button id="submit" type="button">
-        Submit
-      </button>
+        <h1>RESULTS: <%= total %> </h1>
 
     </section>
     </div>

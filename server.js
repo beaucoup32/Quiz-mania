@@ -98,6 +98,23 @@ app.get('/qstart', (req, res) => {
     });
 });
 
+app.get('/results', (req, res) => {
+  console.log("here", req.cookies.count)
+  questionQueries.getQuestions()
+    .then(questions => {
+      console.log("hello", questions)
+      res.render("results", {
+        total: req.cookies.count,
+        data: questions
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 
 //route pulls from marvel questions in data base
 app.get('/marvel', (req, res) => {
@@ -146,6 +163,8 @@ app.get('/tekken', (req, res) => {
         .json({ error: err.message });
     });
 });
+
+
 
 app.get('/user/:id/quizzes', (req, res) => {
 
