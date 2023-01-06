@@ -78,17 +78,17 @@ $(() => {
     $temp.val($this).select();
     document.execCommand("copy");
     $temp.remove();
+    return alert('Copied link to clipboard.');
 
   });
 
   // redirect quiz link to quiz
-  $('.user-quiz-container').on("click", 'article.quiz-link', function(event) {
+  $('.user-quiz-container').on("click", 'p.quiz-name', function(event) {
     event.preventDefault();
 
+    const $this = $(this).parent().find("button")[0].value;
 
-    const $this = $(this).find("button")[0].value;
-
-    return window.location.href = `/quiz/${$this}`;
+    window.location.href = `/quiz/${$this.slice(20)}`;
   });
 
 
