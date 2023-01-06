@@ -132,10 +132,17 @@ $(()=>{
     window.location.href = "/quiz";
   });
 
+  $(":button[name='create-quiz']").on('click', function(event) {
+    event.preventDefault();
+
+    window.location.href = '/quiz/create';
+  });
+
+
   const $myQuizzes = $("<button name='MyQuizzes' class='nav-button my-quizzes'>My Quizzes</button>");
 
-   //check cookie for login
-   if (Cookies.get("user_id")) {
+  //check cookie for login
+  if (Cookies.get("user_id")) {
 
     $(".login").html('Logout');
 
@@ -146,7 +153,6 @@ $(()=>{
     $(".login").html('Login');
   }
 
-
   $('.nav-options').on('click','.login', function(event) {
     event.preventDefault();
 
@@ -154,12 +160,11 @@ $(()=>{
 
       $(".my-quizzes").remove();
       Cookies.remove('user_id');
-
-      return window.location.href = '/quiz';
+      $(".login").html('Login');
 
     } else {
 
-      // set user login
+      // change user cookie here (quiz.js, create-quiz.js, app.js, )
       Cookies.set('user_id', 3);
       $(".login").html('Logout');
       $(".nav-options").prepend($myQuizzes);
