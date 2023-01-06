@@ -30,8 +30,23 @@ const getQuizCategories = () => {
     });
 }
 
+const removeQuizFromUser = (user_id, quiz_name) => {
+  const dbQuery = `
+  UPDATE quizzes
+  SET owner_id = 0
+  WHERE owner_id = $1
+  AND quiz_name = $2;
+  `;
+  const dbOptions = [user_id, quiz_name];
+
+  return db.query(dbQuery, dbOptions)
+    .then(data => {
+      return data.rows
+    });
+};
+
 const addQuestion = (questions) => {
-  // console.log(questions)
+
   return db.query(`
   INSERT INTO questions (
     quiz_id,
@@ -54,7 +69,6 @@ const addQuestion = (questions) => {
     questions.answer
   ])
     .then((result) => {
-      // console.log(result.rows[0])
       return result.rows[0];
     })
     .catch((err) => {
@@ -63,7 +77,6 @@ const addQuestion = (questions) => {
 };
 
 const addQuiz = (quiz) => {
-  // console.log(quiz)
   return db.query(`
   INSERT INTO quizzes (
     owner_id,
@@ -83,7 +96,6 @@ const addQuiz = (quiz) => {
     quiz.quiz_url
   ])
     .then((result) => {
-      // console.log(result.rows[0])
       return result.rows[0];
     })
     .catch((err) => {
@@ -96,7 +108,8 @@ module.exports = {
   addQuestion,
   addQuiz,
   getUserQuizzes,
-  getQuizCategories
+  getQuizCategories,
+  removeQuizFromUser
 };
 
 
