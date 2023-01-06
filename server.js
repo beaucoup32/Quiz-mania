@@ -100,7 +100,7 @@ app.get('/qstart', (req, res) => {
     });
 });
 
-// gets quiz short id and plays corresponding quiz 
+// gets quiz short id and plays corresponding quiz
 app.get('/quiz/:quiz_url', (req, res) => {
 
   const quizUrl = req.params.quiz_url;
@@ -126,7 +126,7 @@ app.get('/marvel', (req, res) => {
     .then(questions => {
       console.log('marvel route handler', questions)
       res.render("qstart", {
-        data: questions[0]
+        data: questions
       })
     })
     .catch(err => {
@@ -142,7 +142,23 @@ app.get('/games', (req, res) => {
     .then(questions => {
       console.log('games route handler', questions)
       res.render("qstart", {
-        data: questions[0]
+        data: questions
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+//route pulls from movies questions in data base
+app.get('/movies', (req, res) => {
+  questionQueries.getMoviesQuestions()
+    .then(questions => {
+      console.log('games route handler', questions)
+      res.render("qstart", {
+        data: questions
       })
     })
     .catch(err => {
@@ -158,7 +174,7 @@ app.get('/tekken', (req, res) => {
     .then(questions => {
       console.log('tekken route handler', questions)
       res.render("qstart", {
-        data: questions[0]
+        data: questions
       })
     })
     .catch(err => {

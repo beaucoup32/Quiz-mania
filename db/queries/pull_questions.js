@@ -26,6 +26,12 @@ const getGamesQuestions = () => {
     });
 };
 
+const getMoviesQuestions = () => {
+  return db.query("select * from questions WHERE category LIKE 'movies%' order by random()   limit 5;")
+    .then(data => {
+      return data.rows;
+    });
+};
 
 const getTekkenQuestions = () => {
   return db.query("select * from questions WHERE category LIKE 'tekken%' order by random()   limit 5;")
@@ -51,7 +57,7 @@ const pullQuizByURL = (quizURL) => {
     });
 };
 
-module.exports = { getQuestions, getMarvelQuestions, getGamesQuestions, getTekkenQuestions, pullQuizByURL};
+module.exports = { getQuestions, getMarvelQuestions, getGamesQuestions, getTekkenQuestions, pullQuizByURL, getMoviesQuestions};
 
 
 
