@@ -1,3 +1,6 @@
+
+$(()=>{
+  
 $('#create-button').prop('disabled', true);
 
 
@@ -125,7 +128,6 @@ $('#create-button').on('click', function (event) {
   });
 });
 
-$(()=>{
   $("nav").on("click", "button[name='home-button']", function (event) {
     event.preventDefault();
 
