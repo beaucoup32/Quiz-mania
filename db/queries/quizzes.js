@@ -91,13 +91,35 @@ const addQuiz = (quiz) => {
     });
 };
 
+///////////
+// const getUserScore = (score) => {
+//   const dbQuery = `
+//   SELECT score
+//   FROM scores
+//   WHERE owner_id = $1
+//   ORDER BY id DESC
+//   LIMIT 1;
+//   `;
+//   const dbOptions = [owner_id];
+
+//   return db.query(dbQuery, dbOptions)
+//     .then(data => {
+//       return data.rows;
+//     });
+// };
+
+// const getUrl = (url) => {
+//   const dbQuery = ``
+// }
+
 
 module.exports = {
   getUsers,
   addQuestion,
   addQuiz,
   getUserQuizzes,
-  getQuizCategories
+  getQuizCategories,
+  getUserScore
 };
 
 
