@@ -23,7 +23,7 @@ $('#add-question-button').on('click', function (event) {
     const $question = $(`
     <div class="question-input">
     <div class="question-input-field">
-    <Label for="question">Question*</Label>
+    <Label for="question">Question*</Label><i class="fa-regular fa-trash-can"></i>
     <input type="text" name="question" required="required">
     </div>
     <div>
@@ -60,11 +60,11 @@ $('#add-question-button').on('click', function (event) {
     // }
 
     // // trash can delete question <i class="fa-regular fa-trash-can"></i>
-    // $('.fa-trash-can').on('click', function (event) {
-    //   $(event.target).closest('.question-input').next('.answer-select').remove();
-    //   $(event.target).closest('.question-input').remove();
-    //   questionCount--;
-    // });
+    $('.fa-trash-can').on('click', function (event) {
+      $(event.target).closest('.question-input').next('.answer-select').remove();
+      $(event.target).closest('.question-input').remove();
+      questionCount--;
+    });
     $('#add-question-button').toggle(questionCount < 10);
   };
 });

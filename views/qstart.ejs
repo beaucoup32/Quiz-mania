@@ -49,9 +49,13 @@
     <div class="question">
       <div class="category">
         <h1>Categories</h1>
-        <p id="final-count">0</p>
+        <div class="score">
+        <Label class="score">Score</Label>
+        <p class="score" id="final-count">0</p>
         <%for (let item of data) {%>
-        <button class="button">
+        </div>
+<section class="game-section">
+          <button class="button">
           <div class="question-box">
           <h2 class="start-button"><%= item.question %></h2>
           </div>
@@ -98,7 +102,7 @@
       <div class="copy-link">
         <h2 class>copy link</h2>
       </div>
-
+    </section>
     </div>
   </body>
 

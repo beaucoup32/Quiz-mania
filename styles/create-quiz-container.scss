@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 
 .answer-select {
@@ -63,6 +63,7 @@ select {
   border-radius: 0.5em;
   border: solid;
   border-color: rgb(10, 189, 198);
+  font-weight: bold;
   color: rgb(10, 189, 198);
   margin: 1em;
   padding: 0em 0.5em;
@@ -82,6 +83,7 @@ select {
   border-radius: 0.5em;
   border: solid;
   border-color: rgb(10, 189, 198);
+  font-weight: bold;
   color: rgb(10, 189, 198);
   padding: 0em 0.5em;
   margin: 1em;
@@ -173,4 +175,8 @@ select {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.5;
+}
+
+.fa-trash-can {
+  margin: 0.5em;
 }
