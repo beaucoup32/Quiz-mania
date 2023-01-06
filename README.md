@@ -1,5 +1,16 @@
-LHL Node Skeleton
+Quiz-mania
 =========
+Quiz-mania is a simple, multi-page quiz app that allows users to attempt a quiz, create a quiz, share a quiz or score.
+
+## Final Product
+
+!["screenshot of main page](https://github.com/beaucoup32/Quiz-mania/blob/add-quiz/docs/img/main.PNG?raw=true)
+!["screenshot of quizzes page](https://github.com/beaucoup32/Quiz-mania/blob/add-quiz/docs/img/quizzes.PNG?raw=true)
+!["screenshot of create page](https://github.com/beaucoup32/Quiz-mania/blob/add-quiz/docs/img/create.PNG?raw=true)
+!["screenshot of game page](https://github.com/beaucoup32/Quiz-mania/blob/add-quiz/docs/img/game.PNG?raw=true)
+
+
+
 
 ## Project Setup
 

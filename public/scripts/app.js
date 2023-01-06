@@ -1,7 +1,7 @@
-
 $( document ).ready(function() {
   console.log( "ready!" );
-
+  let count = 0
+  let answers = []
   $('.button-answer').on('click', function(event) {
     const userChoice = $(this).text().trim()[0]
     console.log(userChoice)
@@ -9,17 +9,31 @@ $( document ).ready(function() {
     const correctAnswer = answer[answer.length - 1]
     console.log(correctAnswer)
     if (userChoice === correctAnswer) {
-      let count = parseInt($('#final-count').text())
+      count = parseInt($('#final-count').text())
       console.log(count)
       count ++
+
       $('#final-count').text(count)
 
     }
     const selectAnswersContainers = $(this).closest('.answers-container')
-    console.log("hello", selectAnswersContainers)
+    const id = selectAnswersContainers.attr('data-id')
+    console.log("id", id)
     selectAnswersContainers.find('button').prop('disabled', true)
     $(this).parent().parent().next().next().css("visibility", "visible");
+    answers.push({
+      id: id,
+      answer: userChoice
+    })
+    console.log('answers', answers)
   })
+  $('#submit').on('click', function (event) {
+    console.log('answers', answers)
+    // localStorage.setItem('score', count);
+    document.cookie = `score = ${count} `
+  })
+<<<<<<< HEAD
+=======
 
   $(":button[name='create-quiz']").on("click", function (event) {
     event.preventDefault();
@@ -72,24 +86,8 @@ $( document ).ready(function() {
     window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
   });
 
+>>>>>>> 64167f3763687aed3ff988833a00c123e16b46c8
 });
 
 
 // $('#create-button').on('click', function (event) {}
-
-
-/////////
-// const shareLink = document.getElementById('share-link');
-
-// shareLink.addEventListener('click', () => {
-//   // get user's score
-//   const score = getUserScore();
-//   // create a message to share
-//   const message = `I scored ${score} on this quiz! Can you beat it?`;
-//   // copy message to clipboard
-//   navigator.clipboard.writeText(message);
-//   // show a message that the score copied
-//   alert('Score copied to clipboard! Paste it wherever you like to share it with your friends.');
-// });
-
-
