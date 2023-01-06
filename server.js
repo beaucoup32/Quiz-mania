@@ -100,6 +100,7 @@ app.get('/qstart', (req, res) => {
     });
 });
 
+// gets quiz short id and plays corresponding quiz 
 app.get('/quiz/:quiz_url', (req, res) => {
 
   const quizUrl = req.params.quiz_url;
