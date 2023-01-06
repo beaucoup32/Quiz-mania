@@ -1,5 +1,10 @@
-LHL Node Skeleton
+Quiz-mania
 =========
+Quiz-mania is a simple, multi-page quiz app that allows users to attempt a quiz, create a quiz, share a quiz or score.
+
+## Final Product
+
+
 
 ## Project Setup
 
