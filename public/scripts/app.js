@@ -32,8 +32,6 @@ $( document ).ready(function() {
     // localStorage.setItem('score', count);
     document.cookie = `score = ${count} `
   })
-<<<<<<< HEAD
-=======
 
   $(":button[name='create-quiz']").on("click", function (event) {
     event.preventDefault();
@@ -86,7 +84,6 @@ $( document ).ready(function() {
     window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
   });
 
->>>>>>> 64167f3763687aed3ff988833a00c123e16b46c8
 });
 
 
