@@ -148,7 +148,7 @@ module.exports = {
   addQuiz,
   getUserQuizzes,
   getQuizCategories,
-  getUserScore
+  // getUserScore
 };
 
 

@@ -20,6 +20,8 @@ $( document ).ready(function() {
     selectAnswersContainers.find('button').prop('disabled', true)
     $(this).parent().parent().next().next().css("visibility", "visible");
   })
+
+  
 });
 
 
@@ -39,3 +41,5 @@ $( document ).ready(function() {
 //   // show a message that the score copied
 //   alert('Score copied to clipboard! Paste it wherever you like to share it with your friends.');
 // });
+
+
