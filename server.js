@@ -109,6 +109,16 @@ app.get('/quiz/:quiz_url', (req, res) => {
   questionQueries.pullQuizByURL(quizUrl)
     .then(questions => {
       console.log('results: ', questions);
+      for (let question of questions) {
+        // console.log(question.public);
+        if (!question.public) {
+          if (req.cookies.user_id != question.owner_id) {
+
+            return res.status(401)
+              .redirect('/quiz');
+          }
+        }
+      }
       res.render("qstart", {
         data: questions
       })
@@ -196,7 +206,7 @@ app.get('/user/:id/quizzes', (req, res) => {
 
 //create quiz route
 app.get('/quiz/create', (req, res) => {
-  
+
   res.render('create');
 })
 
