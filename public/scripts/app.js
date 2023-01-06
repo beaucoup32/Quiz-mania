@@ -27,7 +27,7 @@ $( document ).ready(function() {
 
     window.location.href = "/quiz";
   });
-  
+
   $(":button[name='create-quiz']").on('click', function(event) {
     event.preventDefault();
 
@@ -60,6 +60,7 @@ $( document ).ready(function() {
 
     } else {
 
+      // change user cookie here (quiz.js, create-quiz.js, app.js, )
       Cookies.set('user_id', 3);
       $(".login").html('Logout');
       $(".nav-options").prepend($myQuizzes);
