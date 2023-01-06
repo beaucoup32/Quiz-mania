@@ -58,6 +58,7 @@ $( document ).ready(function() {
 
     } else {
 
+      // change user cookie here (quiz.js, create-quiz.js, app.js, )
       Cookies.set('user_id', 3);
       $(".login").html('Logout');
       $(".nav-options").prepend($myQuizzes);
@@ -65,7 +66,7 @@ $( document ).ready(function() {
     };
   });
 
-  $('.nav-options').on('click', "button[name='MyQuizzes']", function (event) {
+  $('.nav-options').on('click', "button[name='MyQuizzes']", function(event) {
     event.preventDefault();
 
     window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
