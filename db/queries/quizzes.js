@@ -103,6 +103,56 @@ const addQuiz = (quiz) => {
     });
 };
 
+/////////
+const addScore = (score) => {
+  return db.query(`
+  INSERT INTO scores (
+    owner_id,
+    category,
+    quiz_name,
+    level,
+    public,
+    quiz_url)
+    VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *;
+    `, [
+    quiz.owner_id,
+    quiz.category,
+    quiz.quiz_name,
+    quiz.level,
+    quiz.public,
+    quiz.quiz_url
+  ])
+    .then((result) => {
+      // console.log(result.rows[0])
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+
+}
+
+// const getUserScore = (score) => {
+//   const dbQuery = `
+//   SELECT score
+//   FROM scores
+//   WHERE player_id = $1
+//   ORDER BY id DESC
+//   LIMIT 1;
+//   `;
+//   const dbOptions = [player_id];
+
+//   return db.query(dbQuery, dbOptions)
+//     .then(data => {
+//       return data.rows;
+//     });
+// };
+
+// const getUrl = (url) => {
+//   const dbQuery = ``
+// }
+
 
 module.exports = {
   getUsers,
@@ -110,7 +160,8 @@ module.exports = {
   addQuiz,
   getUserQuizzes,
   getQuizCategories,
-  removeQuizFromUser
+  removeQuizFromUser,
+  // getUserScore
 };
 
 

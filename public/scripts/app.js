@@ -26,3 +26,16 @@ $( document ).ready(function() {
 // $('#create-button').on('click', function (event) {}
 
 
+/////////
+// const shareLink = document.getElementById('share-link');
+
+// shareLink.addEventListener('click', () => {
+//   // get user's score
+//   const score = getUserScore();
+//   // create a message to share
+//   const message = `I scored ${score} on this quiz! Can you beat it?`;
+//   // copy message to clipboard
+//   navigator.clipboard.writeText(message);
+//   // show a message that the score copied
+//   alert('Score copied to clipboard! Paste it wherever you like to share it with your friends.');
+// });
