@@ -160,10 +160,7 @@ module.exports = {
   addQuiz,
   getUserQuizzes,
   getQuizCategories,
-<<<<<<< HEAD
-=======
   removeQuizFromUser,
->>>>>>> 689fdff6b22a60eddef302f722985536b067d223
   // getUserScore
 };
 
