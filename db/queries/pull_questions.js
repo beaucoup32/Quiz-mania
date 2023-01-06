@@ -34,7 +34,24 @@ const getTekkenQuestions = () => {
     });
 };
 
-module.exports = { getQuestions, getMarvelQuestions, getGamesQuestions, getTekkenQuestions};
+const pullQuizByURL = (quizURL) => {
+  const dbQuery = `
+  SELECT *
+  FROM questions
+  JOIN quizzes ON quizzes.id = questions.quiz_id
+  WHERE quiz_url = $1
+  ORDER BY random()
+  LIMIT 5;
+  `;
+
+  const dbOptions = [quizURL];
+  return db.query(dbQuery, dbOptions)
+    .then(data => {
+      return data.rows;
+    });
+};
+
+module.exports = { getQuestions, getMarvelQuestions, getGamesQuestions, getTekkenQuestions, pullQuizByURL};
 
 
 

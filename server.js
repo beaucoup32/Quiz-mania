@@ -100,6 +100,24 @@ app.get('/qstart', (req, res) => {
     });
 });
 
+app.get('/quiz/:quiz_url', (req, res) => {
+
+  const quizUrl = req.params.quiz_url;
+  console.log(quizUrl);
+
+  questionQueries.pullQuizByURL(quizUrl)
+    .then(questions => {
+      console.log('results: ', questions);
+      res.render("qstart", {
+        data: questions
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({error: err.message })
+    });
+})
 
 //route pulls from marvel questions in data base
 app.get('/marvel', (req, res) => {
@@ -154,7 +172,6 @@ app.get('/user/:id/quizzes', (req, res) => {
   if(!req.cookies.user_id) {
     res.redirect('/quiz')
   }
-  console.log('test', req.cookies.user_id);
 
   res.render('quizzes');
 })
