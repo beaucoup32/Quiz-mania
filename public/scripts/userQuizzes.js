@@ -7,7 +7,7 @@ const createQuizElement = (quizData) => {
       <input type="checkbox" name="public-checkbox">
       <span class="checkmark"></span>
     </label>
-    <button name='copy-link' type="button">Copy URL</button>
+    <button name='copy-link' type="button" value=localhost:8080/quiz/${quizData.quiz_url}>Copy URL</button>
     <button name="delete-quiz" type="button">Delete</button>
   </article>
   `);
@@ -51,8 +51,6 @@ $(() => {
     function (event) {
       event.preventDefault();
 
-
-      console.log('this value:', );
       // delete quiz element from container
       $.ajax({
         url: "/user/quizzes",
@@ -68,16 +66,43 @@ $(() => {
       });
   });
 
+  // copy value in copylink button to clipboard
+  $('.user-quiz-container').on("click", ":button[name='copy-link']", function(event) {
+    event.preventDefault();
+
+    const $this = $(this).val();
+    const $temp = $("<input>");
+    console.log($this);
+
+    $("body").append($temp);
+    $temp.val($this).select();
+    document.execCommand("copy");
+    $temp.remove();
+
+  });
+
+  // redirect quiz link to quiz
+  $('.user-quiz-container').on("click", 'article.quiz-link', function(event) {
+    event.preventDefault();
+
+
+    const $this = $(this).find("button")[0].value;
+
+    return window.location.href = `/quiz/${$this}`;
+  });
+
+
+
   $(":button[name='create-quiz']").on("click", function (event) {
     event.preventDefault();
 
-    window.location.href = "/quiz/create";
+    return window.location.href = "/quiz/create";
   });
 
   $("nav").on("click", "button[name='home-button']", function (event) {
     event.preventDefault();
 
-    window.location.href = "/quiz";
+    return window.location.href = "/quiz";
   });
 
   const $myQuizzes = $(
@@ -92,13 +117,13 @@ $(() => {
 
     if (Cookies.get("user_id")) {
       Cookies.remove("user_id");
-      window.location.href = "/quiz";
+      return window.location.href = "/quiz";
     }
   });
 
   $(".nav-options").on("click", "button[name='MyQuizzes']", function (event) {
     event.preventDefault();
 
-    window.location.href = `/user/${Cookies.get("user_id")}/quizzes`;
+    return window.location.href = `/user/${Cookies.get("user_id")}/quizzes`;
   });
 });
