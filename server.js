@@ -39,6 +39,7 @@ const db = require('./db/connection');
 
 const userQuizzesApiRoutes = require('./routes/userQuizzes-api');
 const QuizCategoryRoutes = require('./routes/quiz-categories-api');
+const removeQuizRoutes = require('./routes/removeUserQuiz-api')
 const { addQuiz, addQuestion } = require('./db/queries/quizzes');
 
 // Mount all resource routes
@@ -49,7 +50,8 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
 app.use('/api/user-quizzes', userQuizzesApiRoutes);
-app.use('/api/quiz-categories', QuizCategoryRoutes)
+app.use('/api/quiz-categories', QuizCategoryRoutes);
+app.use('/user/quizzes', removeQuizRoutes);
 
 //parse incoming request
 app.use(express.json());

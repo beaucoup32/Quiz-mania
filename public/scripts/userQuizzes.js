@@ -17,7 +17,7 @@ const createQuizElement = (quizData) => {
 
 const renderQuizzes = (quizArr) => {
   //clear quizzes section
-  $(".user-quiz-container").empty;
+  $(".user-quiz-container").empty();
 
   // add new quizzes to top
   for (let quiz of quizArr) {
@@ -40,9 +40,8 @@ const loadQuizzes = () => {
 $(() => {
   //check cookie for login
   if (!Cookies.get("user_id")) {
-
-    return window.location.href = "/quiz";
-  };
+    return (window.location.href = "/quiz");
+  }
 
   loadQuizzes();
 
@@ -52,10 +51,22 @@ $(() => {
     function (event) {
       event.preventDefault();
 
+
+      console.log('this value:', );
       // delete quiz element from container
-      $(this).parent().parent().remove();
-    }
-  );
+      $.ajax({
+        url: "/user/quizzes",
+        type: "POST",
+        data: {
+          user_id: Cookies.get("user_id"),
+          quiz_name: $(this).parent().parent().children().html(),
+        },
+
+        success: function () {
+          loadQuizzes();
+        },
+      });
+  });
 
   $(":button[name='create-quiz']").on("click", function (event) {
     event.preventDefault();
@@ -69,25 +80,25 @@ $(() => {
     window.location.href = "/quiz";
   });
 
-  const $myQuizzes = $("<button name='MyQuizzes' class='nav-button my-quizzes'>My Quizzes</button>");
+  const $myQuizzes = $(
+    "<button name='MyQuizzes' class='nav-button my-quizzes'>My Quizzes</button>"
+  );
 
   $(".nav-options").prepend($myQuizzes);
-  $(".login").html('Logout');
+  $(".login").html("Logout");
 
-  $('.nav-options').on("click", ".login", function (event) {
+  $(".nav-options").on("click", ".login", function (event) {
     event.preventDefault();
 
     if (Cookies.get("user_id")) {
-
       Cookies.remove("user_id");
       window.location.href = "/quiz";
-    };
+    }
   });
 
-  $('.nav-options').on('click', "button[name='MyQuizzes']", function(event) {
+  $(".nav-options").on("click", "button[name='MyQuizzes']", function (event) {
     event.preventDefault();
 
-    window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
+    window.location.href = `/user/${Cookies.get("user_id")}/quizzes`;
   });
-  
 });
