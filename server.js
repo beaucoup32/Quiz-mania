@@ -86,6 +86,7 @@ app.get('/quiz', (req, res) => {
 //route pulls from all questions in data base
 app.get('/qstart', (req, res) => {
   console.log("here")
+  // const quizUrl = req.params.quiz_url;
   questionQueries.getQuestions()
     .then(questions => {
       console.log("hello", questions)

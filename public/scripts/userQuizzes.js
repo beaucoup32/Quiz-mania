@@ -127,3 +127,7 @@ $(() => {
     return window.location.href = `/user/${Cookies.get("user_id")}/quizzes`;
   });
 });
+
+module.exports = {
+  createQuizElement
+}
