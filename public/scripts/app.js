@@ -1,8 +1,8 @@
-$( document ).ready(function() {
-  console.log( "ready!" );
+$(document).ready(function () {
+  console.log("ready!");
   let count = 0
   let answers = []
-  $('.button-answer').on('click', function(event) {
+  $('.button-answer').on('click', function (event) {
     const userChoice = $(this).text().trim()[0]
     console.log(userChoice)
     const answer = $(this).parent().next().next().first().text().trim()
@@ -10,17 +10,22 @@ $( document ).ready(function() {
     console.log(correctAnswer)
     if (userChoice === correctAnswer) {
       count = parseInt($('#final-count').text())
-      console.log(count)
-      count ++
+      console.log('score:', count);
+      count++
 
       $('#final-count').text(count)
+      // console.log(count)
 
     }
     const selectAnswersContainers = $(this).closest('.answers-container')
     const id = selectAnswersContainers.attr('data-id')
     console.log("id", id)
     selectAnswersContainers.find('button').prop('disabled', true)
-    $(this).parent().parent().next().next().css("visibility", "visible");
+
+    $('.results').not(selectAnswersContainers.next().next()).css('visibility', 'hidden');
+    selectAnswersContainers.next().next().css('visibility', 'visible');
+    // $(this).parent().parent().next().next().css("visibility", "visible");
+    // $('.results').css('visibility', 'visible');
     answers.push({
       id: id,
       answer: userChoice
@@ -78,7 +83,7 @@ $( document ).ready(function() {
     };
   });
 
-  $('.nav-options').on('click', "button[name='MyQuizzes']", function(event) {
+  $('.nav-options').on('click', "button[name='MyQuizzes']", function (event) {
     event.preventDefault();
 
     window.location.href = `/user/${Cookies.get('user_id')}/quizzes`;
