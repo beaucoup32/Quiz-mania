@@ -33,6 +33,7 @@
 }
 
 .answer-select {
+  align-self: center;
   margin-top: 1em;
 }
 
@@ -74,9 +75,9 @@ select {
   color: rgb(234, 0, 217);
 }
 
-// #add-question-button:disabled {
-//   display: none;
-// }
+#add-question-button:disabled {
+  display: none;
+}
 
 #cancel-create-button {
   background-color: transparent;

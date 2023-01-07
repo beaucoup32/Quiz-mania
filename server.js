@@ -100,36 +100,6 @@ app.get('/qstart', (req, res) => {
     });
 });
 
-// gets quiz short id and plays corresponding quiz
-app.get('/quiz/:quiz_url', (req, res) => {
-
-  const quizUrl = req.params.quiz_url;
-  console.log(quizUrl);
-
-  questionQueries.pullQuizByURL(quizUrl)
-    .then(questions => {
-      console.log('results: ', questions);
-      for (let question of questions) {
-        // console.log(question.public);
-        if (!question.public) {
-          if (req.cookies.user_id != question.owner_id) {
-
-            return res.status(401)
-              .redirect('/quiz');
-          }
-        }
-      }
-      res.render("qstart", {
-        data: questions
-      })
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({error: err.message })
-    });
-})
-
 //route pulls from marvel questions in data base
 app.get('/marvel', (req, res) => {
   questionQueries.getMarvelQuestions()
@@ -208,6 +178,36 @@ app.get('/user/:id/quizzes', (req, res) => {
 app.get('/quiz/create', (req, res) => {
 
   res.render('create');
+})
+
+// gets quiz short id and plays corresponding quiz
+app.get('/quiz/:quiz_url', (req, res) => {
+
+  const quizUrl = req.params.quiz_url;
+  console.log(quizUrl);
+
+  questionQueries.pullQuizByURL(quizUrl)
+    .then(questions => {
+      console.log('results: ', questions);
+      for (let question of questions) {
+        // console.log(question.public);
+        if (!question.public) {
+          if (req.cookies.user_id != question.owner_id) {
+
+            return res.status(401)
+              .redirect('/quiz');
+          }
+        }
+      }
+      res.render("qstart", {
+        data: questions
+      })
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message })
+    });
 })
 
 

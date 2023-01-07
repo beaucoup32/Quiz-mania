@@ -10,7 +10,7 @@ $(() => {
 
   $("#add-question-button").on("click", function (event) {
     //logs event when add-question is clicked
-    console.log(event.target);
+    // console.log(event.target);
 
     // get the user input
     const userInput = $(".question-input").val();
@@ -38,7 +38,6 @@ $(() => {
     <Label for="choice-d">Choice D*</Label>
     <input type="text" name="choice_d" required="required">
     </div>
-    </div>
 
     <div class="answer-select">
     <select id="answer-select" name="answer" required="required">
@@ -49,10 +48,10 @@ $(() => {
     <option value="answer-d">D</option>
     </select>
     </div>
+    </div>
     `);
 
       $("form.create-quiz-input").append($question);
-      questionCount++;
 
       // if (questionCount >= 0) {
       // // if (inputField.value != null) {
@@ -60,14 +59,13 @@ $(() => {
       // }
 
       // // trash can delete question <i class="fa-regular fa-trash-can"></i>
-      $(".fa-trash-can").on("click", function (event) {
-        $(event.target)
-          .closest(".question-input")
-          .next(".answer-select")
-          .remove();
+      $question.find(".fa-trash-can").on("click", function (event) {
         $(event.target).closest(".question-input").remove();
         questionCount--;
+        $("#add-question-button").toggle(questionCount < 10);
       });
+
+      questionCount++;
       $("#add-question-button").toggle(questionCount < 10);
     }
   });
@@ -78,7 +76,7 @@ $(() => {
 
     $("form.create-quiz-input input, form.create-quiz-input select").each(
       function () {
-        if ($(this).val() === "") {
+        if ($(this).val() === null || $(this).val() === "") {
           formValid = false;
           return false; // exit the loop
         }
